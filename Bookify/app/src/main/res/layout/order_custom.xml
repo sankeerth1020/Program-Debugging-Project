@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardMaxElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+           >
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/cart_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="book name:"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/cart_image"
+                android:visibility="visible"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:id="@+id/pro_name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/pro_name"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/cartproductname"
+                android:text="pname"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:ems="3"
+                android:ellipsize="end"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book rate"
+                android:layout_marginTop="70dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_toRightOf="@id/cart_image"
+                android:visibility="visible"
+
+                android:id="@+id/pro_rate"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_toRightOf="@id/pro_rate"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/rs"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/rs"
+                android:id="@+id/cartproductrate"
+                android:layout_marginTop="70dp"
+                android:text="product rate"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book qty  :"
+                android:textColor="#000000"
+                android:layout_marginTop="130dp"
+                android:layout_toRightOf="@id/cart_image"
+                android:visibility="visible"
+                android:textStyle="bold"
+                android:id="@+id/pro_qty"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/pro_rate"
+                android:id="@+id/cartproductqty"
+                android:layout_marginTop="130dp"
+                android:text="pqty"
+                android:layout_marginLeft="25dp"
+                />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
