@@ -7,5 +7,7 @@ public class Utils {
         public static final String passregEx = "\\b(?=.*\\d).{8,13}\\b";
 
         public static final String Login_Fragment ="LoginActivity";
+        public static final String SignUp_Fragment = "SignUpActivity";
+        public static final String ForgotPassword_Fragment ="ForgotPasswordActivity";
 
 }
