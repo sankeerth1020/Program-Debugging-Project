@@ -6,9 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cat_List"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/cat_List"/>
+        android:layout_height="match_parent"/>
+    <!--    <ListView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/cat_List"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
