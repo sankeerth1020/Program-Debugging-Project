@@ -106,6 +106,8 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         });
     }
 
+    //* onclick on buttons
+
     @Override
     public void onClick(View v) {
 
@@ -163,7 +165,7 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         }
 
     }
-
+//*login verification of the user*/
     public void loginuser() {
         db.collection("user")
                 .whereEqualTo("email", txtloginemail)

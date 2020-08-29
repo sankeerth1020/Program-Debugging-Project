@@ -103,6 +103,8 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
 
     }
 
+    //* checks validation for correct details */
+
     private boolean checkValidation() {
 
         String getFullName = fullName.getText().toString().trim();
