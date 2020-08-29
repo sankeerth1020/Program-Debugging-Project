@@ -16,11 +16,11 @@ public class Confirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
 
-        button=findViewById(R.id.button);
+        button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Confirmation.this,MainActivity.class));
+                startActivity(new Intent(Confirmation.this, MainActivity.class));
             }
         });
 

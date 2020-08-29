@@ -1,5 +1,6 @@
 package com.example.bookify;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -7,9 +8,14 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AddressInfo extends AppCompatActivity {
@@ -20,8 +26,6 @@ public class AddressInfo extends AppCompatActivity {
 
     String namepattern = "[a-zA-Z]+";
     String Licenepattern = "[A-Z0-9]+";
-
-
 
 
     @Override
@@ -170,50 +174,52 @@ public class AddressInfo extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(country.getText().toString())){
+                if (TextUtils.isEmpty(country.getText().toString())) {
                     countryLayout.setError("Enter Country Name Plz..");
                     countryLayout.requestFocus();
-                }
-                else if(TextUtils.isEmpty(province.getText().toString())){
+                } else if (TextUtils.isEmpty(province.getText().toString())) {
                     provinceLayout.setError("Enter Province Name Plz..");
                     provinceLayout.requestFocus();
-                }
-                else if(TextUtils.isEmpty(zipcode.getText().toString())){
+                } else if (TextUtils.isEmpty(zipcode.getText().toString())) {
                     lisenceNumberLayout.setError("Enter zip code Plz..");
                     lisenceNumberLayout.requestFocus();
-                }
-                else if(TextUtils.isEmpty(firstName.getText().toString())){
+                } else if (TextUtils.isEmpty(firstName.getText().toString())) {
                     firstName.setError("Enter First Name Plz..");
                     firstName.requestFocus();
-                }
-                else if(TextUtils.isEmpty(lastName.getText().toString())){
+                } else if (TextUtils.isEmpty(lastName.getText().toString())) {
                     lastName.setError("Enter Last Name Plz..");
                     lastName.requestFocus();
-                }
-                else if(TextUtils.isEmpty(street.getText().toString())){
-                   street.setError("Enter street name Plz..");
+                } else if (TextUtils.isEmpty(street.getText().toString())) {
+                    street.setError("Enter street name Plz..");
                     street.requestFocus();
+                } else {
+                    if (checkBox.isChecked()) {
+                        final Map<String, Object> data = new HashMap<>();
+                        data.put("country", country.getText().toString().trim());
+                        data.put("province", province.getText().toString().trim());
+                        data.put("zipcode", zipcode.getText().toString().trim());
+                        data.put("firstname", firstName.getText().toString().trim());
+                        data.put("lastname", lastName.getText().toString().trim());
+                        data.put("streetname", street.getText().toString().trim());
+                        //data.put("email", user);
+                        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("Address").document().set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(AddressInfo.this, "Address Details Saved", Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+
+                    }
+
+                    Intent intent1 = new Intent(getApplicationContext(), CheckoutActivity.class);
+                    startActivity(intent1);
+
                 }
-                else {
-
-                    //Intent intent1 = new Intent(getApplicationContext(),SummeryActivity.class);
-                    //startActivity(intent1);
-
-                }
-
-
 
 
             }
@@ -227,9 +233,6 @@ public class AddressInfo extends AppCompatActivity {
         super.onStart();
 
 
-
-
     }
-
 
 }

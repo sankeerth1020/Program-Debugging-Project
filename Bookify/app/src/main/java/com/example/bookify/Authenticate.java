@@ -41,6 +41,9 @@ public class Authenticate extends AppCompatActivity {
                 .replace(R.id.frameContainer,new LoginActivity(),Utils.Login_Fragment).commit();
     }
 
+
+    // Signup fragment of password
+    // password re confirmation
     @Override
     public void onBackPressed() {
 
