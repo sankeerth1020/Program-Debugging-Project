@@ -34,7 +34,9 @@ public class CheckoutActivity extends AppCompatActivity {
     String namepattern = "[a-zA-Z]+";
 
 
-
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,16 +57,31 @@ public class CheckoutActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         name.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (name.getText().toString().matches(namepattern) && s.length() > 0) {
@@ -76,16 +93,31 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
         number.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if(number.getText().toString().trim().length() < 16)
@@ -96,11 +128,23 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
         dateExpiry.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -115,16 +159,31 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
         cvv.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if(cvv.getText().toString().trim().length() < 3)
@@ -139,6 +198,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
         button.setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param v
+             */
             @Override
             public void onClick(View v) {
 
@@ -188,6 +250,10 @@ public class CheckoutActivity extends AppCompatActivity {
 
         });
     }
+
+    /**
+     * onStart
+     */
     @Override
     public void onStart() {
         super.onStart();
