@@ -6,6 +6,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+
 
 public class Authenticate extends AppCompatActivity {
 
@@ -53,6 +57,4 @@ public class Authenticate extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-
 }
