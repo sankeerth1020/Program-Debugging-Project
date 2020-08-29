@@ -31,6 +31,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ *
+ */
 public class SignUpActivity extends Fragment implements View.OnClickListener {
 
     private static View view;
@@ -44,6 +47,12 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,6 +62,9 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    /**
+     *
+     */
     private void initViews() {
 
         fullName = (EditText) view.findViewById(R.id.fullName);
@@ -69,12 +81,18 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
         registerProgress = new ProgressDialog(getActivity());
     }
 
+    /**
+     * onclick listeners
+     */
     private void setListners() {
 
         signUpButton.setOnClickListener(this);
         login.setOnClickListener(this);
     }
 
+    /**
+     * @param v
+     */
     @Override
     public void onClick(View v) {
 
@@ -90,6 +108,9 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     *
+     */
     private void doSignUp() {
 
         registerProgress.setMessage(String.valueOf(R.string.registering));
@@ -105,6 +126,9 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
 
     //* checks validation for correct details */
 
+    /**
+     * @return
+     */
     private boolean checkValidation() {
 
         String getFullName = fullName.getText().toString().trim();
@@ -154,6 +178,10 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
             return true;
         }
     }
+
+    /**
+     * add user to database
+     */
     public void Adduser() {
         CollectionReference dbuser = db.collection("user");
 

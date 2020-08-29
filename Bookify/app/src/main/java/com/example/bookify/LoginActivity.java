@@ -33,6 +33,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class LoginActivity extends Fragment implements View.OnClickListener {
 
     private static View view;
@@ -51,6 +52,13 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
 
     }
 
+    /**
+     * onCreateView
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -62,12 +70,18 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    /**
+     *onStart
+     */
     @Override
     public void onStart() {
         super.onStart();
 
     }
 
+    /**
+     *linking the ids
+     */
     private void initViews() {
         fragmentManager = getActivity().getSupportFragmentManager();
 
@@ -83,6 +97,9 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         loginProgress = new ProgressDialog(getActivity());
     }
 
+    /**
+     * onclick listeners
+     */
     private void setListeners() {
 
         loginButton.setOnClickListener(this);
@@ -108,6 +125,9 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
 
     //* onclick on buttons
 
+    /**
+     * @param v
+     */
     @Override
     public void onClick(View v) {
 
@@ -124,6 +144,9 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * start login
+     */
     private void startLogin() {
         loginProgress.setMessage(String.valueOf(R.string.signing));
         loginProgress.show();
@@ -135,6 +158,9 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
 
     }
 
+    /**
+     * @return
+     */
     private boolean checkValidation() {
 
         String getEmailID = emailid.getText().toString().trim();
@@ -165,7 +191,11 @@ public class LoginActivity extends Fragment implements View.OnClickListener {
         }
 
     }
-//*login verification of the user*/
+
+
+/**
+ * login verification of the user
+ */
     public void loginuser() {
         db.collection("user")
                 .whereEqualTo("email", txtloginemail)
