@@ -1,10 +1,9 @@
 package com.example.bookify;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,18 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +41,8 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
     private static Animation shakeAnimation;
     private static LinearLayout signUpLayout;
     private static ProgressDialog registerProgress;
-
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -136,8 +148,33 @@ public class SignUpActivity extends Fragment implements View.OnClickListener {
             new CustomToast().ShowToast(getActivity(), view, String.valueOf(R.string.selectcondition));
             return false;
         } else {
-            getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+            Adduser();
             return true;
         }
+    }
+    public void Adduser() {
+        CollectionReference dbuser = db.collection("user");
+
+        UserPojo userPojo = new UserPojo(txtsignname, txtsignemail, txtsignpassword, txtsignnumber);
+        dbuser.add(userPojo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+                editor.putBoolean(loginyes_no, true);
+                editor.putString(Email_shared, emailsign.getText().toString());
+
+                editor.commit();
+                getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(SignUpActivity.this, "Error Adding User", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

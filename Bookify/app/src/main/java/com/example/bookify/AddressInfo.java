@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.bookify;
 
 import android.os.Bundle;
 import android.text.Editable;
