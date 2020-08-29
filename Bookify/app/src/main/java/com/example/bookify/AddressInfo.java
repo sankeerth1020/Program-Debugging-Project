@@ -18,6 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * Address information of customer
+ */
 public class AddressInfo extends AppCompatActivity {
     Button next;
     TextInputEditText country, province, street, firstName, lastName, zipcode;
@@ -51,16 +54,31 @@ public class AddressInfo extends AppCompatActivity {
         birthDateLayout = findViewById(R.id.birthdateInputLayout);
 
         country.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (country.getText().toString().matches(namepattern) && s.length() > 0) {
@@ -73,16 +91,31 @@ public class AddressInfo extends AppCompatActivity {
         });
 
         province.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (province.getText().toString().matches(namepattern) && s.length() > 0) {
@@ -94,16 +127,31 @@ public class AddressInfo extends AppCompatActivity {
         });
 
         zipcode.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (zipcode.getText().toString().matches(Licenepattern) && s.length() > 0) {
@@ -115,16 +163,31 @@ public class AddressInfo extends AppCompatActivity {
         });
 
         firstName.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (firstName.getText().toString().matches(namepattern) && s.length() > 0) {
@@ -136,16 +199,31 @@ public class AddressInfo extends AppCompatActivity {
         });
 
         lastName.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (lastName.getText().toString().matches(namepattern) && s.length() > 0) {
@@ -157,16 +235,31 @@ public class AddressInfo extends AppCompatActivity {
         });
 
         street.addTextChangedListener(new TextWatcher() {
+            /**
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
+            /**
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            /**
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -175,6 +268,9 @@ public class AddressInfo extends AppCompatActivity {
 
 
         next.setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(country.getText().toString())) {

@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 
-
+/**
+ * Authenticate transaction
+ */
 public class Authenticate extends AppCompatActivity {
 
     private static FragmentManager fragmentManager;
@@ -36,6 +38,9 @@ public class Authenticate extends AppCompatActivity {
 
     }
 
+    /**
+     * to complete transaction process and displaying new login activity fragment
+     */
     protected void replaceLoginFragment(){
         fragmentManager.beginTransaction().setCustomAnimations(R.anim.left_enter,R.anim.right_out)
                 .replace(R.id.frameContainer,new LoginActivity(),Utils.Login_Fragment).commit();
@@ -44,6 +49,7 @@ public class Authenticate extends AppCompatActivity {
 
     // Signup fragment of password
     // password re confirmation
+
     @Override
     public void onBackPressed() {
 
