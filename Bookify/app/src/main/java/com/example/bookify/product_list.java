@@ -22,6 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
 
+/**
+ * list of products class
+ */
 public class product_list extends AppCompatActivity {
     RecyclerView book_list;
     FirebaseFirestore productDB;
@@ -29,6 +32,9 @@ public class product_list extends AppCompatActivity {
 
     FirestoreRecyclerAdapter<PojoProduct, ProductView> adapterProduct;
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +61,11 @@ public class product_list extends AppCompatActivity {
 
 
         adapterProduct = new FirestoreRecyclerAdapter<PojoProduct, ProductView>(Cat_options) {
+            /**
+             * @param parent
+             * @param viewType
+             * @return
+             */
             @NonNull
             @Override
             public ProductView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,6 +73,11 @@ public class product_list extends AppCompatActivity {
                 return new ProductView(view);
             }
 
+            /**
+             * @param holder
+             * @param position
+             * @param model
+             */
             @Override
             protected void onBindViewHolder(@NonNull ProductView holder, int position, @NonNull PojoProduct model) {
                 final String id = getSnapshots().getSnapshot(position).getId();
@@ -85,11 +101,18 @@ public class product_list extends AppCompatActivity {
         };
         book_list.setAdapter(adapterProduct);
     }
+
+    /**
+     * product class
+     */
     private class ProductView extends RecyclerView.ViewHolder {
 
         ImageView image_product;
         TextView product_name,price;
 
+        /**
+         * @param itemView
+         */
         public ProductView(@NonNull View itemView) {
             super(itemView);
             image_product = itemView.findViewById(R.id.product_image);
@@ -97,6 +120,10 @@ public class product_list extends AppCompatActivity {
             price = itemView.findViewById(R.id.txtproductprice);
         }
     }
+
+    /**
+     *
+     */
     @Override
     public void onStart() {
         super.onStart();

@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * description class
+ */
 public class ProductDescription extends AppCompatActivity {
 
     @Override
@@ -16,6 +19,9 @@ public class ProductDescription extends AppCompatActivity {
         Button book = findViewById(R.id.Book);
 
         book.setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param v
+             */
             @Override
             public void onClick(View v) {
 
@@ -23,9 +29,6 @@ public class ProductDescription extends AppCompatActivity {
                 startActivity(intent1);
 
             }
-
-
-
 
         });
     }

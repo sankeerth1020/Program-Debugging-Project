@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+/**
+ * adapter class
+ */
 public class ProductAdapter extends BaseAdapter {
 
     Context context;
@@ -33,6 +36,12 @@ public class ProductAdapter extends BaseAdapter {
         return pro_image[position];
     }
 
+    /**
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -49,6 +58,9 @@ public class ProductAdapter extends BaseAdapter {
         final View finalConvertView = convertView;
 
         cardView.setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDescription.class);

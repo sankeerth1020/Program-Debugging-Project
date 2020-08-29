@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * splash screen java class
+ */
 public class Splash extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,9 @@ public class Splash extends AppCompatActivity {
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
+            /**
+             * run method
+             */
             @Override
             public void run() {
                 Intent intent=new Intent(getApplicationContext(),Authenticate.class);
