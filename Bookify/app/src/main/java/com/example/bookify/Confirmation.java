@@ -9,6 +9,9 @@ import android.widget.Button;
 
 public class Confirmation extends AppCompatActivity {
 
+    /**
+     * order confirmation on-click button
+     */
     Button button;
 
     @Override
@@ -18,6 +21,9 @@ public class Confirmation extends AppCompatActivity {
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Confirmation.this, MainActivity.class));
