@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     /**
-     * @param savedInstanceState
+     * @param savedInstanceStates
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
